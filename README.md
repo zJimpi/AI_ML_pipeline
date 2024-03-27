@@ -38,5 +38,6 @@ Create two python files training_pipeline and prediction_pipeline with __init__.
 ``` 
 
 ### Step 6: Create a folder called `notebooks` 
-
-##
+```
+Create a folder called data and include the dataset. Additionally, create a EDA.ipynb file to do the EDA analysis.
+```
