@@ -3,6 +3,7 @@ import sys
 import pickle 
 from src.exception import CustomException
 from sklearn.metrics import r2_score
+from src.logger import logging
 
 def save_function(file_path, obj): 
     dir_path = os.path.dirname(file_path)
@@ -25,4 +26,13 @@ def model_performance(X_train, y_train, X_test, y_test, models):
         return report
 
     except Exception as e: 
+        raise CustomException(e,sys)
+
+# Function to load a particular object 
+def load_obj(file_path):
+    try: 
+        with open(file_path, 'rb') as file_obj: 
+            return pickle.load(file_obj)
+    except Exception as e: 
+        logging.info("Error in load_object fuction in utils")
         raise CustomException(e,sys)
