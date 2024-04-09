@@ -8,8 +8,7 @@ from dataclasses import dataclass
 
 
 
-## Intitialize the Data Ingetion Configuration
-
+## Step1: Create path variables to store the files are raw csv
 @dataclass
 class DataIngestionconfig:
     train_data_path:str=os.path.join('artifacts','train.csv')
