@@ -22,8 +22,8 @@ class ModelTrainer():
     def initiate_model_training(self, train_array, test_array): 
         try: 
             logging.info("Seggregating the dependent and independent variables")
-            X_train, y_train, X_test, y_test = (train_array[:, :-1], 
-                                                train_array[:,-1], 
+            X_train, y_train, X_test, y_test = (train_array[:, :-1],# All rows, all columns except the last one 
+                                                train_array[:,-1], # All rows, only the last column
                                                 test_array[:, :-1], 
                                                 test_array[:,-1])
             models = {
@@ -33,7 +33,8 @@ class ModelTrainer():
                 "ElasticNet": ElasticNet(), 
                 "DecisionTree": DecisionTreeRegressor()
             }
-            model_report: dict = model_performance(X_train, y_train, X_test, y_test, models)
+            model_report: dict = model_performance(X_train, y_train, X_test, y_test, models)#sending data to model_performance
+            # key= model name : value= R2 score 
 
             print(model_report)
             print("\n"*100)
@@ -41,7 +42,7 @@ class ModelTrainer():
 
             # Best model
             best_model_score = max(sorted(model_report.values()))
-            
+                            #fetching the model name     finding index of the maximum R-squared=model name            
             best_model_name = list(model_report.keys())[list(model_report.values()).index(best_model_score)] # Study again
             
             best_model = models[best_model_name]
