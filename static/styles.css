@@ -1,0 +1,15 @@
+
+body {
+    margin: 20px 0px;
+    background-color: rgb(246, 224, 182);
+}
+
+.form-box{
+    width: 60%;
+}
+
+
+.btn{
+    margin-top: 20px ;
+    width: 100%;
+}

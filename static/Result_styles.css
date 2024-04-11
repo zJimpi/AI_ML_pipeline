@@ -1,0 +1,12 @@
+body{
+    
+    margin-top: 20px;
+    background-color: rgb(246, 224, 182);
+}
+.price{
+    text-align: center;
+    background-color: rgb(12, 156, 17);
+
+    border-radius: .5rem;
+    color: white;
+}
