@@ -1,7 +1,7 @@
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
-
+#entry point for model taining
 if __name__ == "__main__": 
     obj = DataIngestion()
     train_data_path, test_data_path = obj.initiate_data_ingestion()

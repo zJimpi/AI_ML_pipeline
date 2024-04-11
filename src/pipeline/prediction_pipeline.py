@@ -9,6 +9,7 @@ class PredictPipeline:
     def __init__(self) -> None:
         pass
 
+    #for prediction of new unseen data this is called by app.py 
     def predict(self, features): 
         try: 
             preprocessor_path = os.path.join('artifacts', 'preprocessor.pkl')
