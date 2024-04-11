@@ -80,14 +80,16 @@ class DataTransformation:
 
             logging.info('Obtaining preprocessing object')
 
-            preprocessing_obj = self.get_data_transformation_object()
+            preprocessing_obj = self.get_data_transformation_object() # fetching preprocessor from previous method
 
             target_column_name = 'price'
             drop_columns = [target_column_name,'id']
 
+            #EDA
             input_feature_train_df = train_df.drop(columns=drop_columns,axis=1)
             target_feature_train_df=train_df[target_column_name]
 
+            #EDA
             input_feature_test_df=test_df.drop(columns=drop_columns,axis=1)
             target_feature_test_df=test_df[target_column_name]
             
@@ -97,12 +99,12 @@ class DataTransformation:
 
             logging.info("Applying preprocessing object on training and testing datasets.")
             
-
+            #converting to arrays in 2d format when columns are stacked
             train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             save_function(
-
+                #path =artifacts/preprocesor.pkl 
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
 
@@ -120,6 +122,6 @@ class DataTransformation:
 
             raise CustomException(e,sys)
 
-
+#test
 # obj =DataTransformation()
 # obj.initiate_data_transformation('../../artifacts/train.csv','../../artifacts/test.csv')
