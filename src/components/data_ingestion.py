@@ -11,9 +11,9 @@ from dataclasses import dataclass
 ## Step1: Create path variables to store the files are raw csv
 @dataclass
 class DataIngestionconfig:
-    train_data_path:str=os.path.join('artifacts','train.csv')
-    test_data_path:str=os.path.join('artifacts','test.csv')
-    raw_data_path:str=os.path.join('artifacts','raw.csv')
+    train_data_path:str=os.path.join('../../artifacts','train.csv')
+    test_data_path:str=os.path.join('../../artifacts','test.csv')
+    raw_data_path:str=os.path.join('../../artifacts','raw.csv')
 
 ## create a class for Data Ingestion
 class DataIngestion:
@@ -21,9 +21,10 @@ class DataIngestion:
         self.ingestion_config=DataIngestionconfig()
 
     def initiate_data_ingestion(self):
+        print("inside initiate ingestion")
         logging.info('Data Ingestion methods Starts')
         try:
-            df=pd.read_csv(os.path.join('notebooks/data','gemstone.csv'))
+            df=pd.read_csv(os.path.join('../../data','gemstone.csv'))
             logging.info('Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
@@ -46,3 +47,6 @@ class DataIngestion:
             logging.info('Exception occured at Data Ingestion stage')
             raise CustomException(e,sys)
         
+
+# obj = DataIngestion()
+# obj.initiate_data_ingestion()

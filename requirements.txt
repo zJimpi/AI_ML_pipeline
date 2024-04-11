@@ -4,4 +4,7 @@ flask
 scikit-learn
 seaborn
 datetime
+typing
+pickles
+logging
 -e .

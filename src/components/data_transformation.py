@@ -15,7 +15,7 @@ from src.utils import save_function
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts','preprocessor.pkl')
+    preprocessor_obj_file_path=os.path.join('../../artifacts','preprocessor.pkl')
 
 class DataTransformation:
     def __init__(self):
@@ -119,3 +119,7 @@ class DataTransformation:
             logging.info("Exception occured in the initiate_datatransformation")
 
             raise CustomException(e,sys)
+
+
+# obj =DataTransformation()
+# obj.initiate_data_transformation('../../artifacts/train.csv','../../artifacts/test.csv')

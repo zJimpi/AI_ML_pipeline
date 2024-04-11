@@ -12,7 +12,7 @@ from src.utils import model_performance
 
 @dataclass 
 class ModelTrainerConfig():
-    trained_model_file_path = os.path.join("artifacts", "model.pkl")
+    trained_model_file_path = os.path.join("../../artifacts", "model.pkl")
 
 
 class ModelTrainer():
@@ -55,3 +55,4 @@ class ModelTrainer():
         except Exception as e: 
             logging.info("Error occured during model training")
             raise CustomException(e,sys)
+
