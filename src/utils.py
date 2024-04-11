@@ -4,7 +4,7 @@ import pickle
 from src.exception import CustomException
 from sklearn.metrics import r2_score
 from src.logger import logging
-
+# this file is sused by everyone
 def save_function(file_path, obj): 
     dir_path = os.path.dirname(file_path)
     os.makedirs(dir_path, exist_ok= True)
@@ -16,9 +16,9 @@ def model_performance(X_train, y_train, X_test, y_test, models):
         report = {}
         for i in range(len(models)): 
             model = list(models.values())[i]
-# Train models
+            # Train models
             model.fit(X_train, y_train)
-# Test data
+            # Test data
             y_test_pred = model.predict(X_test)
             #R2 Score 
             test_model_score = r2_score(y_test, y_test_pred)
